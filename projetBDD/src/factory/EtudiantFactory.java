@@ -24,6 +24,32 @@ public class EtudiantFactory {
 		return instance;
 	}
 	
+	
+	public Etudiant rechercherEtudiantById(Integer id){
+		Etudiant etu = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		
+		try {
+			st = c.prepareStatement("select nometu, prenometu from etudiant where idEtu = ?");
+			st.setInt(1, id);
+			rs = st.executeQuery();
+			
+			if(rs.next()){
+				etu = new Etudiant();
+				etu.setIdEtu(id);
+				etu.setNom(rs.getString("nomenseign"));
+				etu.setPrenom(rs.getString("prenomenseign"));
+			}
+		} catch (SQLException e) {
+			System.out.println("Erreur rechercherEnseignantById - " + e.getMessage());
+		}
+		
+		
+		return etu;
+		
+	}
+	
 	public List<Etudiant> rechercherEtudiantByCC(Integer idcc){
 		List<Etudiant> listeEtu = new ArrayList<Etudiant>();
 		

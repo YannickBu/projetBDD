@@ -1,25 +1,28 @@
 package metier;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.List;
 
-import data.Enseignant;
 import data.Etudiant;
-import factory.EnseignantFactory;
+import factory.EtudiantFactory;
 
 public class MetierEtudiant {
 
-	public MetierEtudiant() {
+	public MetierEtudiant() {}
+
+	public Etudiant rechercheEtudian(Integer id) throws SQLException {
+		EtudiantFactory fabEtu = EtudiantFactory.getInstance();
+		
+		if(fabEtu.rechercherEtudiantById(id) != null) {
+			Etudiant etu = fabEtu.rechercherEtudiantById(id);
+				return etu;
+			}
+		
+		return null;	
 		
 	}
-
-	public List<Etudiant> listeEtudiantsParCCEtEnseignant(int idcc, String nomEns){
-		List<Etudiant> listeEtu = new ArrayList<Etudiant>();
-		
-		Enseignant enseignant = EnseignantFactory.getInstance().rechercherEnseignantByNom(nomEns);
-		
-		
-		
-		return listeEtu;
+	
+	public List<Etudiant> rechercheEtuParCC (Integer idcc) {
+		return EtudiantFactory.getInstance().rechercherEtudiantByCC(idcc);
 	}
 }

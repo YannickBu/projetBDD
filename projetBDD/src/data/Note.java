@@ -2,37 +2,37 @@ package data;
 
 public class Note {
 
-	private CC cc;
-	private Etudiant etu;
-	private Integer note;
+	private Integer idcc;
+	private Integer idEtu;
+	private Double note;
 	
 	public Note() {
 		
 	}
 
-	public CC getCc() {
-		return cc;
+	public Integer getIdcc() {
+		return idcc;
 	}
 
-	public void setCc(CC cc) {
-		this.cc = cc;
+	public void setIdcc(Integer idcc) {
+		this.idcc = idcc;
 	}
 
-	public Etudiant getEtu() {
-		return etu;
+	public Integer getIdEtu() {
+		return idEtu;
 	}
 
-	public void setEtu(Etudiant etu) {
-		this.etu = etu;
+	public void setIdEtu(Integer idEtu) {
+		this.idEtu = idEtu;
 	}
 
-	public Integer getNote() {
+	public Double getNote() {
 		return note;
 	}
 
-	public void setNote(Integer note) {
+	public void setNote(Double note) {
 		this.note = note;
 	}
 
-	
+		
 }
